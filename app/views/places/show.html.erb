@@ -11,6 +11,7 @@
 			<p>Categoria: <%= @place.tipo.capitalize %></p>
 			<% if user_signed_in? %> 
 				<%= link_to 'Editar', edit_place_path(@place) %>
+				<%= link_to 'Deletar', place_path(@place), method: :delete %>
 			<% end %>
 		</div>
 	</div>

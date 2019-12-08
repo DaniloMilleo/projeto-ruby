@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @lugares = Place.order(rating: :desc)
   end
 
   def listar

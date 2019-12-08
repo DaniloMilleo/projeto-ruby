@@ -1,4 +1,4 @@
-<%= form_with(model: place, local: true) do |form| %>
+<%= form_with(model: place, local: true, class: 'form-places') do |form| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -17,24 +17,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :end %>
+    <%= form.label :end, 'Endereço' %>
     <%= form.text_field :end %>
   </div>
 
   <div class="field">
-    <%= form.label :desc %>
+    <%= form.label :desc, 'Descrição' %>
     <%= form.text_field :desc %>
   </div>
 
   <div class="field">
-    <%= form.label :tipo %>
+    <%= form.label :tipo, 'Categoria' %>
     <%= form.select(:tipo, options_for_select([['Shopping', :shopping], ['Evento', :evento],['Restaurante', :restaurante], ['Academia', :academia], ['Hotel', :hotel], ['Balada', :balada] ])) %>
   </div>
   
-  <%= form.label :image do %>
-    <%=  form.hidden_field :image_cache %>
-    <%=  form.file_field :image %>
-  <% end %>
+  <div class="field">
+    <%= form.label :image do %>
+      Imagem
+      <%=  form.hidden_field :image_cache %>
+      <%=  form.file_field :image %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

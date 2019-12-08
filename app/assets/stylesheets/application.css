@@ -41,8 +41,6 @@ nav {
     display: flex;
     padding: 0 5%;
     margin:0;
-    max-width: 900px;
-    min-width: 350px;
     justify-content: flex-start;
     align-items: center;
 }
@@ -129,10 +127,36 @@ nav a:hover {
     justify-content: center;
     padding: 50px;
     flex-direction: column;
-    color: #000;
-    opacity: .2;
+    color: #fff;
 }
 
-#home .header h2 {
-    opacity: 1;
+#home h2 {
+    margin: 50px 0;
+    text-align: center;
+}
+
+#home .toplugares {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .toplugar {
+    padding: 20px;
+    max-width: 300px;
+}
+
+#home .toplugares img {
+    max-width: 100%;
+}
+
+.field {
+    margin: 10px;
+}
+
+.form-places {
+    min-width: 350px;
+    max-width: 450px;
+    margin: 0 auto;
 }

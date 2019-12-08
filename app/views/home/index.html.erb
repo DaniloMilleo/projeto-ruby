@@ -1,6 +1,19 @@
 <div id="home">
-	<div class="header" style="background-image: url(<%= asset_path 'home-bg.jpg' %>)">
-		<h2>Encontre lugares para sair</h2>
+	<div class="header" style="background: url(<%= asset_path 'home-bg.jpg' %>) no-repeat fixed center">
+		<h1>Encontre lugares para sair</h1>
 		<h4>Explore os lugares e atividades mais bem conceituados</h4>
+	</div>
+
+
+	<h2>Lugares mais bem avaliados</h2>
+	<div class="toplugares">
+		<% @lugares.each do |lugar| %>
+			<div class="toplugar">
+				<%= link_to place_path(lugar) do %>
+					<h3><%= lugar.nome %></h3>
+					<%= image_tag lugar.image.url %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 </div>
