@@ -9,6 +9,9 @@
 			<p>Descrição: <%= @place.desc %></p>
 			<p>Nota: <%= @place.rating ? @place.rating : '?' %>/10</p>
 			<p>Categoria: <%= @place.tipo.capitalize %></p>
+			<% if user_signed_in? %> 
+				<%= link_to 'Editar', edit_place_path(@place) %>
+			<% end %>
 		</div>
 	</div>
 	<div>
@@ -25,18 +28,16 @@
 			</p>
 		<% end %>
 
-		<div>
+		<div class="ratingsbox">
+			<h2>Avaliações</h2>
 			<% @place.ratings.each do |rating| %>
 				<div class="ratingbox"> 
 					<p>Usuário: <%= rating.user.email %></p>
 					<p>Comentário: <%= rating.comment %></p>
 					<p>Nota: <%= rating.nota %></p>
-				</p>
+				</div>
 			<% end %>
 		</div>
 
-		<% if user_signed_in? %> 
-			<%= link_to 'Editar', edit_place_path(@place) %>
-		<% end %>
 	</div>
 </div>
