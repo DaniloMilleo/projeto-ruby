@@ -1,0 +1,18 @@
+<div class="placelist">
+	<h1><%= @categoria %></h1>
+	<% @places.each do |place| %>
+		<div class="placediv">
+			<%= link_to image_tag(place.image.url), place_path(place) %>
+			<div>
+				<h2><%= link_to place.nome, place_path(place) %></h2>
+				<!--<p>Endereço: <%= place.end %></p>
+				<p>Descrição: <%= place.desc %></p>-->
+				<p>Nota: <%= place.rating ? place.rating : '?' %>/10</p>
+
+				<% unless @categoria %>
+					<p>Categoria: <%= place.tipo.capitalize %></p>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

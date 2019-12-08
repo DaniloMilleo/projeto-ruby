@@ -1,0 +1,42 @@
+<%= form_with(model: place, local: true) do |form| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.text_field :end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_field :desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.select(:tipo, options_for_select([['Shopping', :shopping], ['Evento', :evento],['Restaurante', :restaurante], ['Academia', :academia], ['Hotel', :hotel], ['Balada', :balada] ])) %>
+  </div>
+  
+  <%= form.label :image do %>
+    <%=  form.hidden_field :image_cache %>
+    <%=  form.file_field :image %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

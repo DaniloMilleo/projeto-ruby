@@ -1,0 +1,110 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+    font-family: Arial;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    padding: 20px;
+    margin: 0;
+    justify-content: flex-start;
+    box-shadow: 0 5px 15px #ccc;
+}
+
+nav {
+    display: flex;
+    padding: 0 5%;
+    margin:0;
+    max-width: 900px;
+    min-width: 350px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav a {
+    padding: 15px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: .4s all;
+    border-radius: 20px;
+    color: #000;
+}
+
+nav a:hover {
+    background-color: rgba(249,25,66,.06);
+    color: #f91942;
+}
+
+.main-logo img {
+    max-width: 64px;
+}
+
+#categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#categorias a {
+    width: 450px;
+    height: 250px;
+    overflow: hidden;
+    margin: 30px;
+}
+
+#categorias img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.placelist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.placediv {
+    display: flex;
+    margin: 40px;
+    padding: 10px 0;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.placediv:hover {
+    background-color: #eee;
+}
+
+.placediv a img {
+    border-radius: 5px;
+}
+
+.placediv div {
+    padding: 20px;
+}
+
+.ratingbox {
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}

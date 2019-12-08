@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div class="placelist">
+	<h1><%= @place.nome %></h1>
+	<div class="placediv">
+		<%= link_to image_tag(@place.image.url), place_path(@place) %>
+		<div>
+			<p>Endereço: <%= @place.end %></p>
+			<p>Descrição: <%= @place.desc %></p>
+			<p>Nota: <%= @place.rating ? @place.rating : '?' %>/10</p>
+			<p>Categoria: <%= @place.tipo.capitalize %></p>
+		</div>
+	</div>
+	<div>
+		<% if user_signed_in? %> 
+			<p>
+				<%= form_tag("/rating", method: "post") do %>
+				  <%= label_tag(:comentario, "Comentário:") %>
+				  <%= text_field_tag(:comentario, nil, minlength:5, maxlength:70) %>
+				  <%= label_tag(:nota, "Nota:") %>
+				  <%= number_field_tag(:nota, nil, in: 1.0..10.0, step: 1) %>
+				  <%= hidden_field_tag(:lugar, @place.id) %>
+				  <%= submit_tag("Avaliar") %>
+				<% end %>
+			</p>
+		<% end %>
+
+		<div>
+			<% @place.ratings.each do |rating| %>
+				<div class="ratingbox"> 
+					<p>Usuário: <%= rating.user.email %></p>
+					<p>Comentário: <%= rating.comment %></p>
+					<p>Nota: <%= rating.nota %></p>
+				</p>
+			<% end %>
+		</div>
+
+		<% if user_signed_in? %> 
+			<%= link_to 'Editar', edit_place_path(@place) %>
+		<% end %>
+	</div>
+</div>
